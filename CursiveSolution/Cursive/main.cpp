@@ -25,7 +25,7 @@ void gotoxy(int x, int y);
 void ShowConsoleCursor(bool show);
 void DisplayOptions(int Set[], std::vector <std::string> options);
 void clear();
-bool YesNoMenu();
+bool YesNoMenu(std::string message);
 
 
 int main()
@@ -136,9 +136,12 @@ void DisplayOptions(int Set[], std::vector <std::string> options)
 
 			if (_counter == 3)
 			{
-				return;
+				if (YesNoMenu("Quit?"))
+				{
+					return;
+				}
+				
 			}
-
 
 		}
 
@@ -158,8 +161,10 @@ void DisplayOptions(int Set[], std::vector <std::string> options)
 /*
 Confirmation Window
 */
-bool YesNoMenu()
+bool YesNoMenu( std::string message )
 {
+	clear();
+	std::cout << message + "\n";
 	int counter = 1;
 	char key;
 	bool flag = true;
