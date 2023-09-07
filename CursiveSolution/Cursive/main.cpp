@@ -1,13 +1,15 @@
 /*
-* Version 0.01 of Cursive 
+* Version 0.02 of Cursive 
 *
 * Programmer: Arthur W. Aznive Jr.
 * Date: 3/15/2022
 * Comments:
 * Updates:
 * Patch Notes:
-*
+*	Create a Menu class.
 */
+#include "Menu.h"
+
 
 #include <string>
 #include <iostream>
@@ -16,47 +18,66 @@
 #include <conio.h>
 #include <vector>
 
-//using namespace std;
+//using namespace std
 
 //Function Declarations
-
 void color(int color);
-void gotoxy(int x, int y);
+//void gotoxy(int x, int y);
 void ShowConsoleCursor(bool show);
 void DisplayOptions(int Set[], std::vector <std::string> options);
 void clear();
-bool YesNoMenu(std::string message);
+//bool YesNoMenu(std::string message);
 
+int counter = 0;
+char key;
+bool flag = true;
 
 int main()
 {
-	std::cout << "Cursive\nBy: Arthur W. Aznive Jr.";
-	int Set[] = { 7,7,7 }; //Default colors;
-	int counter = 2;
-	//char key;
-	bool flag = true;
+	std::cout << "Cursive\nBy: Arthur W. Aznive Jr. " << std::endl; ;
+	//int Set[] = { 7,7,7 }; //Default colors;
+	
 
-	std::vector <std::string> mainOptions{ "Option 1", "Option 2", "Quit" };
+	//std::vector <std::string> mainOptions{ "Option 1", "Option 2", "Quit" };
+
+	Menu mainMenu("Main Menu");
+
+	mainMenu.addMenuOption("Option 1", 1);
+	mainMenu.addMenuOption("Option 2", 2);
+	mainMenu.addMenuOption("Option 3", 3);
+	mainMenu.addMenuOption("Exit Demo", 4);
+
+	mainMenu.setMenuPosition(10, 5); //default location.
+	mainMenu.setTextColor(7);	//default White
 
 	ShowConsoleCursor(false);
 
-	DisplayOptions(Set, mainOptions);
+	mainMenu.display();
+	//DisplayOptions(Set, mainOptions);
 
 	return 0;
 }
 
+//Set Color of Printed text
 void color(int color)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
 
+/*Given a coordinate location in the console, set the Cursor Location for printing.
+
 void gotoxy(int x, int y)
 {
+	//Define a coordinate.
 	COORD c;
+
+	//define the coordinate values.
 	c.X = x;
 	c.Y = y;
+
+	//Set the data.
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
-}
+}*/
 
 /*
 * Disables the cursor on the screen when I dont want to prompt the user to type.
@@ -91,6 +112,54 @@ void clear()
 	SetConsoleCursorPosition(console, topLeft);
 }
 
+void selectOption(Menu menu)
+{
+	do
+	{
+
+		//get the key input.
+		key = _getch();
+
+		//decrement counter (going up the list)
+		if (key == 72 && counter != 1)//up arrow
+		{
+			counter--;
+		}
+
+		//increment counter (going down list)
+		if (key == 80 && counter != )//down arrow
+		{
+			counter++;
+		}
+
+		if (key == '\r') //enter key
+		{
+			//Do something based of the action number.
+
+			if (menu.getOption() )
+			{
+				//if (YesNoMenu("Quit?"))
+				//{
+				//	return;
+				//}
+
+			}
+
+		}
+
+		//set all options to white
+		//for (int i = 0; i < _size; i++)
+		//{
+			//Set[i] = 7; //default white color.
+		//}
+
+		//Hightlight the selected option.
+		//Set[_counter - 1] = 12;
+
+
+	} while (flag);
+}
+
 /***
 	A work in progress... The idea is you can store a bunch of options you want to have like windows, and then pass the menu options you want
 	to display and have a dynamic menu selection. I can do differently.
@@ -108,7 +177,7 @@ void DisplayOptions(int Set[], std::vector <std::string> options)
 		//display the options
 		for (int i = 0; i < _size; i++)
 		{
-			gotoxy(10, (5 + i));
+			//gotoxy(10, (5 + i));
 			color(Set[i]);
 			std::cout << options[i];
 
@@ -136,10 +205,10 @@ void DisplayOptions(int Set[], std::vector <std::string> options)
 
 			if (_counter == 3)
 			{
-				if (YesNoMenu("Quit?"))
-				{
-					return;
-				}
+				//if (YesNoMenu("Quit?"))
+				//{
+				//	return;
+				//}
 				
 			}
 
@@ -160,7 +229,7 @@ void DisplayOptions(int Set[], std::vector <std::string> options)
 
 /*
 Confirmation Window
-*/
+
 bool YesNoMenu( std::string message )
 {
 	clear();
@@ -224,4 +293,4 @@ bool YesNoMenu( std::string message )
 
 
 	} while (flag);
-}
+}*/
