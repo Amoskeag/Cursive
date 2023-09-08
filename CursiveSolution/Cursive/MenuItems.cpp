@@ -8,7 +8,7 @@ MenuItems::MenuItems() {
 
 int MenuItems::getSize() {
 	//Return the number of items in the vector.
-	//return _size;
+	return _size;
 	
 }
 

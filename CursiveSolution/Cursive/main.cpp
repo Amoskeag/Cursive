@@ -20,11 +20,11 @@
 //Function Declarations
 
 void color(int color);
-//void gotoxy(int x, int y);
+void gotoxy(int x, int y);
 void ShowConsoleCursor(bool show);
-//void DisplayOptions(int Set[], std::vector <std::string> options);
+void DisplayOptions(int Set[], std::vector <std::string> options);
 void clear();
-//bool YesNoMenu(std::string message);
+bool YesNoMenu(std::string message);
 
 
 int main()

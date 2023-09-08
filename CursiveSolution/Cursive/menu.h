@@ -16,6 +16,8 @@ public:
 	void getMessage();			//Gets the stored message of the menu object.
 	void setMessage();			//A Menu can have a message displayed, such as "Confirm?" or general user feedback such as "File Saved".
 	void selectItem();			//Select the active item in the Menu.
+	bool active;				//Stores if the Menu is active, if it is active, it should be shown.
+
 private:
 	int _menuSize;				//Size of the menu
 	int _activeItem;			//holds the index of the active item, starts at 0 when a Menu is selected (top of the menu).

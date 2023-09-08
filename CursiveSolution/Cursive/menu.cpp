@@ -7,7 +7,8 @@ menu::menu() {
 	this->_activeItem = NULL;	//There is no item to be active, when an item is added for the first time, make this 0.
 	this->_menuMessage = "";	//No Message.
 	this->_menuTitle = "";		//No Title.
-	//Add MenuItem Vector.
+	this->active = false;		//Is not active yet.
+
 }
 
 menu::menu(std::string title) {
@@ -16,7 +17,8 @@ menu::menu(std::string title) {
 	this->_activeItem = NULL;		//There is no item to be active, when an item is added for the first time, make this 0.
 	this->_menuMessage = "";		//No Message.
 	this->_menuTitle = "";			//No Title.
-	//Add MenuItem Vector.
+	this->active = false;		//Is not active yet.
+
 }
 
 menu::menu(std::string title, std::string message) {
@@ -25,11 +27,13 @@ menu::menu(std::string title, std::string message) {
 	this->_activeItem = NULL;		//There is no item to be active, when an item is added for the first time, make this 0.
 	this->_menuMessage = message;	//No Message.
 	this->_menuTitle = title;		//No Title.
+	this->active = false;		//Is not active yet.
 	
 }
 
 int menu::getSize() {
 	//returns the size of the item vector of the Menu.
+	return 0;
 }
 
 void menu::addItem() {
