@@ -1,31 +1,30 @@
 /*
-* Version 0.01 of Cursive 
+* Version 0.02 of Cursive 
 *
 * Programmer: Arthur W. Aznive Jr.
 * Date: 3/15/2022
 * Comments:
 * Updates:
-* Patch Notes:
+* Patch Notes: Added the Menu and MenuItem Class.
 *
 */
 
-#include <string>
-#include <iostream>
-#include <fstream>
-#include <Windows.h>
+#include "Menu.h"
+
+
 #include <conio.h>
-#include <vector>
+//#include <vector>
 
 //using namespace std;
 
 //Function Declarations
 
 void color(int color);
-void gotoxy(int x, int y);
+//void gotoxy(int x, int y);
 void ShowConsoleCursor(bool show);
-void DisplayOptions(int Set[], std::vector <std::string> options);
+//void DisplayOptions(int Set[], std::vector <std::string> options);
 void clear();
-bool YesNoMenu(std::string message);
+//bool YesNoMenu(std::string message);
 
 
 int main()
