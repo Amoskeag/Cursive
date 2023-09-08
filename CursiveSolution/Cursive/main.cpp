@@ -1,5 +1,5 @@
 /*
-* Version 0.02 of Cursive 
+* Version 0.02
 *
 * Programmer: Arthur W. Aznive Jr.
 * Date: 3/15/2022
@@ -11,8 +11,8 @@
 
 #include "Menu.h"
 
-
 #include <conio.h>
+
 //#include <vector>
 
 //using namespace std;
