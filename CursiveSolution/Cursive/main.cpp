@@ -16,7 +16,13 @@
 #include <fstream>
 #include <Windows.h>
 #include <conio.h>
+<<<<<<< Updated upstream
 #include <vector>
+=======
+#include <iostream>
+#include <fstream>
+#include <string>
+>>>>>>> Stashed changes
 
 //using namespace std
 
@@ -24,7 +30,7 @@
 void color(int color);
 //void gotoxy(int x, int y);
 void ShowConsoleCursor(bool show);
-void DisplayOptions(int Set[], std::vector <std::string> options);
+//void DisplayOptions(int Set[], std::vector <std::string> options);
 void clear();
 //bool YesNoMenu(std::string message);
 
@@ -34,6 +40,7 @@ bool flag = true;
 
 int main()
 {
+<<<<<<< Updated upstream
 	std::cout << "Cursive\nBy: Arthur W. Aznive Jr. " << std::endl; ;
 	//int Set[] = { 7,7,7 }; //Default colors;
 	
@@ -54,7 +61,31 @@ int main()
 
 	mainMenu.display();
 	//DisplayOptions(Set, mainOptions);
+=======
+	//std::cout << "Cursive\nBy: Arthur W. Aznive Jr.";
+	//int Set[] = { 7,7,7 }; //Default colors;
+	//int counter = 2;
+	//char key;
+	bool flag = true;
 
+	//std::vector <std::string> mainOptions{ "Option 1", "Option 2", "Quit" };
+	
+	menu mainMenu("Main Menu", "Cursive: By Amoskeag");
+
+	mainMenu.addItem("New File");
+	mainMenu.addItem("Open File");
+	mainMenu.addItem("Save File");
+	mainMenu.addItem("Exit");
+
+	ShowConsoleCursor(false);
+
+	//DisplayMenu(Set, mainOptions);
+>>>>>>> Stashed changes
+
+	mainMenu.displayMenu();
+
+	mainMenu.selectItem();
+	//system("pause");
 	return 0;
 }
 
@@ -94,6 +125,7 @@ void ShowConsoleCursor(bool show)
 	SetConsoleCursorInfo(out, &cursorInfo);
 }
 
+//Clear the screen, this should be in a "Canvas" class so I can control the TUI.
 void clear()
 {
 	COORD topLeft = { 0, 0 };
@@ -163,7 +195,7 @@ void selectOption(Menu menu)
 /***
 	A work in progress... The idea is you can store a bunch of options you want to have like windows, and then pass the menu options you want
 	to display and have a dynamic menu selection. I can do differently.
-/***/
+/*
 void DisplayOptions(int Set[], std::vector <std::string> options)
 {
 	int _size = options.size();
@@ -225,7 +257,7 @@ void DisplayOptions(int Set[], std::vector <std::string> options)
 
 
 	} while (flag);
-}
+}*/
 
 /*
 Confirmation Window
