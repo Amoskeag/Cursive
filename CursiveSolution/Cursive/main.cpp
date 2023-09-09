@@ -1,5 +1,5 @@
 /*
-* Version 0.02 of Cursive 
+* Version 0.02 of Cursive
 *
 * Programmer: Arthur W. Aznive Jr.
 * Date: 3/15/2022
@@ -34,24 +34,24 @@ bool flag = true;
 
 int main()
 {
+	//create a menu.
 	menu mainMenu("Main Menu", "Cursive: By Amoskeag");
 
+	//Add items to the menu.
 	mainMenu.addItem("Option 1");
 	mainMenu.addItem("Option 2");
 	mainMenu.addItem("Option 3");
 	mainMenu.addItem("Exit Demo");
 
+	//hide the cursor.
 	ShowConsoleCursor(false);
 
-	bool flag = true;
-
-	ShowConsoleCursor(false);
-
-	//DisplayMenu(Set, mainOptions);
-
+	//Show the menu
 	mainMenu.displayMenu();
 
+	//Get user input
 	mainMenu.selectItem();
+
 	//system("pause");
 	return 0;
 }
@@ -151,7 +151,7 @@ void DisplayOptions(int Set[], std::vector <std::string> options)
 
 		if (key == '\r') //enter key
 		{
-			//Do something based of the counter number. This is why classes exist isnt it. I can make a class called Options. and each one will be fully 
+			//Do something based of the counter number. This is why classes exist isnt it. I can make a class called Options. and each one will be fully
 			//customizable and defined. Or I could make this GUI in a Win App. But where's the fun in that!? For now, Quit on 3.
 
 			if (_counter == 3)
@@ -160,7 +160,7 @@ void DisplayOptions(int Set[], std::vector <std::string> options)
 				//{
 				//	return;
 				//}
-				
+
 			}
 
 		}

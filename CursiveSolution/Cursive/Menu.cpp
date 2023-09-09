@@ -1,4 +1,4 @@
-#include "menu.h"
+#include "Menu.h"
 #include "MenuItems.h"
 #include <iostream>
 #include <conio.h>
@@ -30,13 +30,13 @@ menu::menu(std::string title, std::string message) {
 	this->_menuMessage = message;	//No Message.
 	this->_menuTitle = title;		//No Title.
 	this->active = false;			//Is not active yet.
-	
+
 }
 
 int menu::getSize() {
 	//returns the size of the item vector of the Menu.
 	return menuItems.size();
-	
+
 }
 
 void menu::addItem(std::string item) {
@@ -67,22 +67,26 @@ void menu::setCoord(int x, int y) {
 }
 
 void menu::displayMenu() {
+
+
 	//Display the menu. set to active at the end? ill try it.
 	if (this->_menuTitle != "")
 	{
 		//Display the Title
+		setColor(7);
 		std::cout << this->_menuTitle << std::endl;
 	}
 
 	if (getMessage() != "")
 	{
 		//Display the Message
+		setColor(7);
 		std::cout << getMessage() << std::endl << std::endl;
 	}
 
 	for (int i = 0; i < this->getSize(); i++)
 	{
-		setCoord(10, (5 + i));
+		setCoord(10, (7 + i));
 		if (i == _activeItem)
 		{
 			setColor(12);
@@ -93,13 +97,13 @@ void menu::displayMenu() {
 			setColor(7);
 			std::cout << this->menuItems[i];
 		}
-			
+
 
 	}
 	std::cout << std::endl;
 
-	
-	//this->active = true;
+
+
 }
 
 void menu::closeMenu() {
@@ -128,12 +132,13 @@ void menu::selectItem() {
 	int _size = this->getSize();
 
 	_activeItem = 0;
+
 	char key;
 	bool flag = true;
 
 	do
 	{
-		displayMenu();
+
 		//get the key input.
 		key = _getch();
 
@@ -144,7 +149,7 @@ void menu::selectItem() {
 		}
 
 		//increment counter (going down list)
-		if (key == 80 && _activeItem != _size - 1 )//down arrow
+		if (key == 80 && _activeItem < _size - 1)//down arrow
 		{
 			_activeItem++;
 		}
@@ -152,12 +157,11 @@ void menu::selectItem() {
 		if (key == '\r') //enter key
 		{
 			//the active item is what the user wants. now we process the selection
-			
+
 
 		}
-
-		closeMenu();
-
+		setCoord(0, 0);
+		displayMenu();
 
 	} while (flag);
 }
