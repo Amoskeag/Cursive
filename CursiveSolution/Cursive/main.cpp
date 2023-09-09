@@ -10,19 +10,13 @@
 */
 #include "Menu.h"
 
-
 #include <string>
-#include <iostream>
-#include <fstream>
 #include <Windows.h>
 #include <conio.h>
-<<<<<<< Updated upstream
 #include <vector>
-=======
 #include <iostream>
 #include <fstream>
-#include <string>
->>>>>>> Stashed changes
+
 
 //using namespace std
 
@@ -40,47 +34,20 @@ bool flag = true;
 
 int main()
 {
-<<<<<<< Updated upstream
-	std::cout << "Cursive\nBy: Arthur W. Aznive Jr. " << std::endl; ;
-	//int Set[] = { 7,7,7 }; //Default colors;
-	
+	menu mainMenu("Main Menu", "Cursive: By Amoskeag");
 
-	//std::vector <std::string> mainOptions{ "Option 1", "Option 2", "Quit" };
-
-	Menu mainMenu("Main Menu");
-
-	mainMenu.addMenuOption("Option 1", 1);
-	mainMenu.addMenuOption("Option 2", 2);
-	mainMenu.addMenuOption("Option 3", 3);
-	mainMenu.addMenuOption("Exit Demo", 4);
-
-	mainMenu.setMenuPosition(10, 5); //default location.
-	mainMenu.setTextColor(7);	//default White
+	mainMenu.addItem("Option 1");
+	mainMenu.addItem("Option 2");
+	mainMenu.addItem("Option 3");
+	mainMenu.addItem("Exit Demo");
 
 	ShowConsoleCursor(false);
 
-	mainMenu.display();
-	//DisplayOptions(Set, mainOptions);
-=======
-	//std::cout << "Cursive\nBy: Arthur W. Aznive Jr.";
-	//int Set[] = { 7,7,7 }; //Default colors;
-	//int counter = 2;
-	//char key;
 	bool flag = true;
-
-	//std::vector <std::string> mainOptions{ "Option 1", "Option 2", "Quit" };
-	
-	menu mainMenu("Main Menu", "Cursive: By Amoskeag");
-
-	mainMenu.addItem("New File");
-	mainMenu.addItem("Open File");
-	mainMenu.addItem("Save File");
-	mainMenu.addItem("Exit");
 
 	ShowConsoleCursor(false);
 
 	//DisplayMenu(Set, mainOptions);
->>>>>>> Stashed changes
 
 	mainMenu.displayMenu();
 
@@ -142,54 +109,6 @@ void clear()
 		screen.dwSize.X * screen.dwSize.Y, topLeft, &written
 	);
 	SetConsoleCursorPosition(console, topLeft);
-}
-
-void selectOption(Menu menu)
-{
-	do
-	{
-
-		//get the key input.
-		key = _getch();
-
-		//decrement counter (going up the list)
-		if (key == 72 && counter != 1)//up arrow
-		{
-			counter--;
-		}
-
-		//increment counter (going down list)
-		if (key == 80 && counter != )//down arrow
-		{
-			counter++;
-		}
-
-		if (key == '\r') //enter key
-		{
-			//Do something based of the action number.
-
-			if (menu.getOption() )
-			{
-				//if (YesNoMenu("Quit?"))
-				//{
-				//	return;
-				//}
-
-			}
-
-		}
-
-		//set all options to white
-		//for (int i = 0; i < _size; i++)
-		//{
-			//Set[i] = 7; //default white color.
-		//}
-
-		//Hightlight the selected option.
-		//Set[_counter - 1] = 12;
-
-
-	} while (flag);
 }
 
 /***
